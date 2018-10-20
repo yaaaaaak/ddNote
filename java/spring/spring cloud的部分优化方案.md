@@ -22,6 +22,6 @@ spring.cloud.inetutils.ignored-interfaces[1]=docker0
 
 另外最好不要暴力干掉注册到eureka的服务实例，否则eureka认为是服务故障，将处于长期自我保护状态。譬如用到docker时，最好不要使用docker stop来停止服务。
 
-简单点的话可以通过配置actuator的shutdown这个endpoint，通过http post访问http://ip:port/shutdown优雅下线，这样会通知到注册中心去下掉当前实例。注意权限控制，就算是内网，如果兄弟部门的同事好奇执行了下这个，你的服务实例就down了。追查起来即使你不负主要责任，领导也要批评你安全意识不行，也够糗的。
+简单点的话可以通过配置actuator的shutdown这个endpoint，通过http post访问http://ip:port/shutdown 优雅下线，这样会通知到注册中心去下掉当前实例。注意权限控制，就算是内网，如果兄弟部门的同事好奇执行了下这个，你的服务实例就down了。追查起来即使你不负主要责任，领导也要批评你安全意识不行，也够糗的。
 
 具体配置后续再补充。
