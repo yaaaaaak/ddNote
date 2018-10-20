@@ -2,18 +2,9 @@
 
 MybatisGenerator，简单来讲，就是围绕数据库表生成最表层crud代码的工具。
 
-一个基础实现可以很简单，新建一个maven项目（非maven自行改造），在pom.xml里配置一下数据库依赖和generator插件。
+一个基础实现可以很简单，新建一个maven项目（非maven自行改造），在pom.xml里配置一下generator插件。
 
 ```xml
-
-    <dependencies>
-        <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>5.1.33</version>
-        </dependency>
-    </dependencies>
 
     <build>
         <plugins>
@@ -82,6 +73,8 @@ MybatisGenerator，简单来讲，就是围绕数据库表生成最表层crud代
     </context>
 </generatorConfiguration>
 ```
+
+再运行generator插件即可。
 
 #### 其他
 
