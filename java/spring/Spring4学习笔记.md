@@ -6,7 +6,7 @@
 
 ```java
 @Bean
-@Scope(value="Session",ProxyMode="自行查api，interface或者targetClass")
+@Scope(value="Session",ProxyMode="interface or targetClass")
 
 ```
 
@@ -44,4 +44,18 @@ public class AspectDemo2 implements Ordered{
 5、Spring AOP还可以给代理的类通过增加接口实现扩展方法，达到无侵入扩展的目的，特别适合对他人写的底层或者无源码的外部包的切入。不过调用新的方法需要强转成扩展接口的类型，某种程度上让表层代码变得结构混乱了，个人用着不是太爽。具体搜关键字@DeclareParents，这里不细讲。
 
 
+
+6、上传文件可以用MultipartFile接收，也可以直接用javax.servlet.http.Part接收，后者还不用配专用的resolver，不过要怎么限制最大需要自行去查阅。
+
+
+
+7、自定义运行时异常可以直接@ResponseStatus配置http返回码以及对应的文案。
+
+
+
+8、redirect将属性带去下一个页面，除了放session外，还可以使用RedirectAttributes，使用方法跟model一样，调用addFlashAttribute即可。
+
+
+
+9、ContextLoaderListener负责加载Spring容器相关的bean，DispatcherServlet负责加载MVC相关的bean（废话，不过想想还是补上这一条）。
 
