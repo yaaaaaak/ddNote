@@ -24,9 +24,9 @@
 
 [Spring4学习笔记](java/spring/Spring4学习笔记.md)
 
-[Spring Boot与普通Spring项目配置共享session](java/spring/Spring Boot与普通Spring项目配置共享session.md)
+[Spring Boot与普通Spring项目配置共享session](java/spring/SpringBoot与普通Spring项目配置共享session.md)
 
-[spring cloud的部分优化方案](java/spring/spring cloud的部分优化方案.md)
+[spring cloud的部分优化方案](java/spring/SpringCloud的部分优化方案.md)
 
 [普通Spring项目配置Eureka通信](java/spring/普通Spring项目配置Eureka通信.md)
 
