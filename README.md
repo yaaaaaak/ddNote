@@ -4,7 +4,7 @@
 
 ### intellij idea
 
-[一种可用的IDEA配置默认JVM参数方式.md](ide/intellij idea/一种可用的IDEA配置默认JVM参数方式.md)
+[一种可用的IDEA配置默认JVM参数方式.md](ide/intellijIdea/一种可用的IDEA配置默认JVM参数方式.md)
 
 ## java
 
