@@ -44,3 +44,8 @@
 
 [SnowFlake分布式产号算法.md](java/util/SnowFlake分布式产号算法.md)
 
+[日志相关.md](java/util/日志相关.md)
+
+## linux
+
+[常用操作.md](linux/常用操作.md)
