@@ -14,7 +14,7 @@
 
 
 
-3、Spring AOP只支持方法级别的切面，其余如构造器切面需要通过其他手段去实现。本质还是代理，而原生AspectJ是一门独立的语言编写的，Spring AOP编写时也只是借鉴其部分语法。
+3、Spring AOP只支持方法级别的切面，其余如构造器切面需要通过其他手段去实现。本质还是代理，而原生AspectJ是一门独立的语言编写的，Spring AOP编写时也只是借鉴其部分语法。要用到aop，不能调用自身的方法，public也不行，非得用的话做一下自我注入，再通过注入对象调用。
 
 
 
@@ -59,3 +59,6 @@ public class AspectDemo2 implements Ordered{
 
 9、ContextLoaderListener负责加载Spring容器相关的bean，DispatcherServlet负责加载MVC相关的bean（废话，不过想想还是补上这一条）。
 
+
+
+10、书看完了，其他的都快速阅读过去了。
