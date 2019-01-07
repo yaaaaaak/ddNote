@@ -66,4 +66,20 @@ protected boolean isHandler(Class<?> beanType) {
 
 
 
-​	
+###### 5、Ribbon设置Rule的一个坑
+
+在配置客户端负载均衡时，一般会通过@Configuration和@Bean指定一个IRule的实现。但是[官方文档](https://cloud.spring.io/spring-cloud-netflix/multi/multi_spring-cloud-ribbon.html)中有明确写明：
+
+> The `CustomConfiguration` clas must be a `@Configuration` class, but take care that it is not in a `@ComponentScan` for the main application context. Otherwise, it is shared by all the `@RibbonClients`. If you use `@ComponentScan` (or `@SpringBootApplication`), you need to take steps to avoid it being included (for instance, you can put it in a separate, non-overlapping package or specify the packages to scan explicitly in the `@ComponentScan`).
+>
+>
+
+大意是，要指定使用Ribbon的Rule，要有@Configuration但是又不能被Spring上下文扫描到，即不能被@ComponentScan或者@SpringBootApplication等注解扫到，否则全局共享，因此最好扫描的时候排除掉，非常奇葩。具体排除方法自行查阅相关文章，很简单。
+
+
+
+###### 6、short-circuited and no fallback available
+
+Hystrix自我保护的一种，书暂时还没看到这里，先记一下。当一段时间请求异常率超过一定数值（50%）时，客户端会自我保护一段时间，对该服务发起的请求都默认标记为失败。
+
+参考：[同样的问题](http://mzeroo.github.io/2015/02/06/thread-hang.html) 和 [一些博主的解读](https://blog.csdn.net/github_38592071/article/details/78878716#) 
