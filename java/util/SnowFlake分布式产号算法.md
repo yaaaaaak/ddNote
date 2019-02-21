@@ -87,7 +87,16 @@ public class SnowFlake {
      * 初始化方法，需要使用时在应用初始化调用
      */
     public static void init() {
-        String ip = IpUtil.getDefaultIp();
+        init(null);
+    }
+
+    /**
+     * 初始化方法，需要使用时在应用初始化调用。这里需要指定一个ip
+     */
+    public static void init(String ip) {
+        if(ip == null) {
+            ip = IpUtil.getDefaultIp();
+        }
 
         long dataCenterId = 1;
         long machineId = 1;

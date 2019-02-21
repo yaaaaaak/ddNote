@@ -1,5 +1,17 @@
 # ddNote
 
+## architecture
+
+[限流一些思路.md](architecture/限流一些思路.md)
+
+## devops
+
+### docker
+
+[docker学习笔记.md](devops/docker/docker学习笔记.md)
+
+[docker实现SpringCloud服务优雅下线.md](devops/docker/docker实现SpringCloud服务优雅下线.md)
+
 ## git
 
 [首页目录生成.md](git/首页目录生成.md)
@@ -15,6 +27,8 @@
 ### jdk
 
 [Java8一些暗坑.md](java/jdk/Java8一些暗坑.md)
+
+[线程相关知识.md](java/jdk/线程相关知识.md)
 
 ### jvm
 
@@ -38,6 +52,8 @@
 
 ### util
 
+[c3p0健康检查的一个坑.md](java/util/c3p0健康检查的一个坑.md)
+
 [jdbcTemplate快速使用.md](java/util/jdbcTemplate快速使用.md)
 
 [Maven常用知识总结.md](java/util/Maven常用知识总结.md)
@@ -49,3 +65,12 @@
 ## linux
 
 [常用操作.md](linux/常用操作.md)
+
+## redis
+
+[一些常识.md](redis/一些常识.md)
+
+## z
+
+[关于前后分离团队协作的一些思考.md](z/关于前后分离团队协作的一些思考.md)
+

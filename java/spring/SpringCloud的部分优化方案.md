@@ -83,3 +83,4 @@ protected boolean isHandler(Class<?> beanType) {
 Hystrix自我保护的一种，书暂时还没看到这里，先记一下。当一段时间请求异常率超过一定数值（50%）时，客户端会自我保护一段时间，对该服务发起的请求都默认标记为失败。
 
 参考：[同样的问题](http://mzeroo.github.io/2015/02/06/thread-hang.html) 和 [一些博主的解读](https://blog.csdn.net/github_38592071/article/details/78878716#) 
+
