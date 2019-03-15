@@ -22,17 +22,19 @@
 
 [一种可用的IDEA配置默认JVM参数方式.md](ide/intellijIdea/一种可用的IDEA配置默认JVM参数方式.md)
 
+[常见问题解决.md](ide/intellijIdea/常见问题解决.md)
+
 ## java
 
 ### jdk
 
+[IO.md](java/jdk/IO.md)
+
 [Java8一些暗坑.md](java/jdk/Java8一些暗坑.md)
 
+[JVM学习笔记.md](java/jdk/JVM学习笔记.md)
+
 [线程相关知识.md](java/jdk/线程相关知识.md)
-
-### jvm
-
-[JVM学习笔记.md](java/jvm/JVM学习笔记.md)
 
 ### mybatis
 
@@ -46,7 +48,7 @@
 
 [SpringBoot与普通Spring项目配置共享session.md](java/spring/SpringBoot与普通Spring项目配置共享session.md)
 
-[SpringCloud的部分优化方案.md](java/spring/SpringCloud的部分优化方案.md)
+[SpringCloud的部分优化方案与坑.md](java/spring/SpringCloud的部分优化方案与坑.md)
 
 [普通Spring项目配置Eureka通信.md](java/spring/普通Spring项目配置Eureka通信.md)
 
@@ -66,9 +68,15 @@
 
 [常用操作.md](linux/常用操作.md)
 
-## redis
+## middleware
 
-[一些常识.md](redis/一些常识.md)
+### kafka
+
+[基础知识.md](middleware/kafka/基础知识.md)
+
+### redis
+
+[一些常识.md](middleware/redis/一些常识.md)
 
 ## z
 
