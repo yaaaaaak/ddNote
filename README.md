@@ -26,11 +26,19 @@
 
 ## java
 
+### framwork
+
+[thrift学习笔记.md](java/framwork/thrift学习笔记.md)
+
 ### jdk
 
 [IO.md](java/jdk/IO.md)
 
 [Java8一些暗坑.md](java/jdk/Java8一些暗坑.md)
+
+[java基础.md](java/jdk/java基础.md)
+
+[Java集合学习笔记.md](java/jdk/Java集合学习笔记.md)
 
 [JVM学习笔记.md](java/jdk/JVM学习笔记.md)
 
