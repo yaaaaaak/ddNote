@@ -61,5 +61,13 @@
 
 13. BeanDefinitionRegistry提供手工注册BeanDefinition对象的方法。
 
-14. 
+14. 初始化顺序
+
+    1. new
+    2. PostConstruct
+    3. afterPropertiesSet
+    4. init-method
+    5. ……其余不列举了，关键是要理解，如果bean实现了接口，会在初始化不同环节一层层执行各个初始化方法就行。
+
+15. 
 

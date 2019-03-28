@@ -48,7 +48,7 @@
 
 [MybatisGenerator简单使用.md](java/mybatis/MybatisGenerator简单使用.md)
 
-[mybatis常见问题.md](java/mybatis/mybatis常见问题.md)
+[mybatis笔记.md](java/mybatis/mybatis笔记.md)
 
 ### spring
 
