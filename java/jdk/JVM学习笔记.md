@@ -159,12 +159,30 @@
    - 类加载器
 
      - 双亲委派模型
+
        - 类加载器收到加载请求时，总会尝试通过父类加载器完成。如果父类加载器抛出ClassNotFoundException，才会尝试自己加载。
-     - 流程
+         - *应用程序的jar包导入不属于双亲委派范围，都是应用层面的类加载
+       - 流程
 
-   ![](sp190316_211648.jpg)
+       ![](E:/github/ddNote/java/jdk/sp190316_211648.jpg)
 
-   ![](2154124-d5859f8e79069128.png)
+       ![](E:/github/ddNote/java/jdk/2154124-d5859f8e79069128.png)
+
+       
+
+     - 线程上下文类加载器ThreadContextClassLoader
+
+       - 主要参考[这篇文章](https://blog.csdn.net/yangcheng33/article/details/52631940)
+
+       - SPI(Service Provider Interface)
+         - 定义好接口，让各厂商自己去实现，只需要按要求在指定位置存放实现代码和配置即可
+         - ClassLoader是没法加载的，但是可以加载到当前执行线程的TCCL（即ThreadContextClassLoader，线程上下文类加载器）里，可以在实现类里的static块做自己想要的操作
+         - 
+       - 适用场景
+         - 高层提供统一接口让低层去实现，又要在高层加载或实例化低层的类，该加载器可以帮助找到并加载此类
+         - 隔离不同调用者（可以研究一下spring、tomcat）
+
+     - 
 
 5. OSGi-略过
 
