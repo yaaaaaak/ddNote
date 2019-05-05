@@ -102,3 +102,34 @@ Hystrix自我保护的一种，书暂时还没看到这里，先记一下。当�
    ```
 
    
+
+8. ###### 移除base模块不需要的自动配置
+
+   有时候接手一些比较乱的项目，部分同事由于自身经验不足或其他问题，会在base模块放一些非必须的配置，后续模块不得不做一些多余的适配，影响面又比较广没法直接剔除。这种问题可以有两个方法解决。
+
+   - 引用模块使用@ComponentScan的excludeFilters，可以去掉不需要的注入
+   - base使用@ConditionalOnMissingXxx，然后在引用模块加入该bean/class
+
+9. ###### 自定义errorPage处理
+
+   查阅源码发现，完成自动处理errorPage依赖于spring-boot-autoconfigure包的ErrorMvcAutoConfiguration类的两个注入。注入代码如下：
+
+   ```java
+   	@Bean
+   	@ConditionalOnMissingBean(value = ErrorAttributes.class, search = SearchStrategy.CURRENT)
+   	public DefaultErrorAttributes errorAttributes() {
+   		return new DefaultErrorAttributes();
+   	}
+   
+   	@Bean
+   	@ConditionalOnMissingBean(value = ErrorController.class, search = SearchStrategy.CURRENT)
+   	public BasicErrorController basicErrorController(ErrorAttributes errorAttributes) {
+   		return new BasicErrorController(errorAttributes, this.serverProperties.getError(),
+   				this.errorViewResolvers);
+   	}
+   
+   ```
+
+   从上述代码可知，如果要实现自动以errorPage处理，实现手动注入ErrorController的实现即可，有特殊需要也可以重新注入ErrorAttributes实现，具体查阅API。
+
+10. 
