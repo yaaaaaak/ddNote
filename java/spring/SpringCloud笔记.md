@@ -132,4 +132,42 @@ Hystrix自我保护的一种，书暂时还没看到这里，先记一下。当�
 
    从上述代码可知，如果要实现自动以errorPage处理，实现手动注入ErrorController的实现即可，有特殊需要也可以重新注入ErrorAttributes实现，具体查阅API。
 
-10. 
+10. ###### FeignClient的fallbakc异常处理优化
+
+   指定fallback实现并不能得知异常类型，从[github](https://github.com/spring-cloud/spring-cloud-netflix/issues/1117)上了解到，这种情况可以考虑使用fallbackFactory。注意版本限制和先后顺序，fallback优先级高于fallbackFactory。大致使用方法如下：
+
+   ```java
+   
+   @FeignClient(name = "testFeign", url = "http://www.fdgdfsgsdf.com", /*fallback = TestFeignImpl.class*/ fallbackFactory = DefaultFallbackFactory.class)
+   public interface TestFeign{
+       @RequestMapping("/")
+       String get();
+   }
+   
+   @Component
+   public class DefaultFallbackFactory implements FallbackFactory<TestFeign>{
+       @Override
+       public TestFeign create(Throwable throwable) {
+           String errMsg = throwable.toString();
+           return new TestFeign() {
+               @Override
+               public String get() {
+                   return "error!!!" + errMsg;
+               }
+           };
+       }
+   }
+   @Component
+   public class TestFeignImpl implements TestFeign{
+   
+       @Override
+       public String get() {
+           log.error("aaaaaaaaa");
+           return "errorMsg";
+       }
+   }
+   ```
+
+   如果你用Dalston.RELEASE之下的spring cloud或者open feign版本低于9.4.0，可能出现FallbackFactory的create方法的Throwable参数为null的bug（异常为ExecutionException时），可以参考[这个issue](https://github.com/spring-cloud/spring-cloud-netflix/issues/2047)升级spring cloud或者open feign。
+
+11. test
