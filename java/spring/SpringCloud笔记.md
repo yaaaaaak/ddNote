@@ -170,4 +170,20 @@ Hystrix自我保护的一种，书暂时还没看到这里，先记一下。当�
 
    如果你用Dalston.RELEASE之下的spring cloud或者open feign版本低于9.4.0，可能出现FallbackFactory的create方法的Throwable参数为null的bug（异常为ExecutionException时），可以参考[这个issue](https://github.com/spring-cloud/spring-cloud-netflix/issues/2047)升级spring cloud或者open feign。
 
-11. test
+注意Dalston.RELEASE默认feign.hystrix.enabled是关闭的，需要手动配置。
+
+11. feign配合ribbon使用的话，不建议使用自带的retryer。
+
+    如果都配置了，那么实际的重试次数计算规则如下：
+    $$
+    total=retryer.maxAttempts *  (ribbon.MaxAutoRetries+1) * (ribbon.MaxAutoRetriesNextServer+1)
+    $$
+    而且ribbon的重试是先用的。这么看下来其实已经不太好控制，总的来说还是比较鸡肋。
+
+    细粒度的重置配置操作起来还是比较麻烦的，暂时还不清楚有没有什么其他便捷的配置方式。
+
+12. 
+
+13. 
+
+14. test
