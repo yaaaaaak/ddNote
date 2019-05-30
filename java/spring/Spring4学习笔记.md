@@ -71,3 +71,7 @@
 
 15. 调用自身需要用到aop的方法，可以通过AopContext.currentProxy()强转(推荐)，或者自我注入。
 
+16. @Transactional默认隔离级别是DEFAULT，即使用数据库的配置，这个可以根据需要调整。
+
+17. 
+
