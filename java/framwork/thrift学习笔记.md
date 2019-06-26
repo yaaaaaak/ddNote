@@ -12,15 +12,17 @@
 
    - 非阻塞服务-均采用事件驱动/多路复用
 
-     - TNoneBlockingServer
+     - 非阻塞服务上下文切换开销并不低，业务执行逻辑大多就在thriftServer上，所以其实在并发方面并不会有特别大的提升。只是解除阻塞比考虑上下文切换开销代价的优先级高，所以采用这个比较多。
 
-       - 非阻塞，单线程selector轮询。
+     - TNoneBlockingServer
+     
+  - 非阻塞，单线程selector轮询。
        - 如果某个工作线程处理慢，会影响整体响应
 
      - THsHaServer(half-sync/half-async)
-
+     
        - TNoneBlockingServer的优化，业务处理过程交给线程池，主线程接收完直接返回进行下一次循环
-       - half-sync/half-async：半异步半同步。对io事件异步，对handler的rpc请求同步
+  - half-sync/half-async：半异步半同步。对io事件异步，对handler的rpc请求同步
        - 并发大的时候，主线程可能忙着处理响应，不一定能及时接收到新的socket请求
 
      - TThreadSelectorServer
@@ -36,6 +38,6 @@
        - 1个ExecutorService工作线程池(Executors.newFixedThreadPool)，负责执行业务逻辑线程管理
 
        - 具体流程可参考这张图
-
+     
          ![](69856-20151107185027539-1093454102.png)
 
